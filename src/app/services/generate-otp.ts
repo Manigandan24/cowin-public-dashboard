@@ -41,4 +41,7 @@ export class GenerateOtp {
         return this.token
     }
 
+    resetToken(){
+        this.token=''
+    }
 }

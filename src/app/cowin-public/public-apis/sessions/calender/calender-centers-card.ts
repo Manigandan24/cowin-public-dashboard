@@ -6,7 +6,7 @@ import { DataService } from "src/app/services/data";
 @Component({
     selector: "app-calender-center-card",
     templateUrl: "./calender-centers-card.html",
-    //styleUrls: ['./calender-centers-card.css']
+    styleUrls: ['./calender-centers-card.css']
 })
 
 export class CalenderCenter implements OnInit {

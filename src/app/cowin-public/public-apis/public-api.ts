@@ -105,6 +105,7 @@ export class PublicApi implements OnInit{
     }
 
     enableAuthrization() {
+        this.generateOtp.resetToken()
         this.authorized = false
         this.receivedOtp=false;
         this.classStyler.auth = true
