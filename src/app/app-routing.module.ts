@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './auth/authguard.service';
 import { CowinPublic } from './cowin-public/cowin-component';
 import { DistrictComponent } from './cowin-public/public-apis/admin/district/districtlist';
 import { StateComponent } from './cowin-public/public-apis/admin/state/statelist';
@@ -13,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent, pathMatch: 'full' },
   {
-    path: 'cowin', component: CowinPublic, /*canActivate: [AuthGuardService],*/ children: [
+    path: 'cowin', component: CowinPublic, canActivate: [AuthGuardService], children: [
       { path: '', redirectTo: 'api', pathMatch: 'full' }, //default page 
       {
         path: 'api' , component:PublicApi, children:[
