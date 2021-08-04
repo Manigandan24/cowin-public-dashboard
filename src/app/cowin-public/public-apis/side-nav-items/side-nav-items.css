@@ -1,0 +1,6 @@
+
+a .active {
+    background-color: red;
+}
+
+a.mat-list-item.active { color: #ccc; }

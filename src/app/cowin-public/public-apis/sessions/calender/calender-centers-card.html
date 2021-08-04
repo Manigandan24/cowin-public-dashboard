@@ -1,0 +1,64 @@
+<div class=centers>
+    <div *ngIf="isLoading">
+        <p> {{ message }}</p>
+    </div>
+    <div *ngIf="!isLoading">
+        <div class="centers">
+            <div style="margin-top: 15px;">
+                <h1>Sessions List</h1>
+            </div>
+            <table class="table table-striped  table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>center Id</th>
+                        <th>name</th>
+                        <th>address</th>
+                        <th>state_name</th>
+                        <th>district_name</th>
+                        <th>block_name</th>
+                        <th>pincode</th>
+                        <th>from</th>
+                        <th>to</th>
+                        <th>lat</th>
+                        <th>long</th>
+                        <th>fee_type</th>
+                        <th>sessios link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of centersList.centers | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i =index">
+                        <th scope="row">{{ (page -1) * pageSize + i + 1 }}</th>
+                        <td>{{ item.center_id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.address }}</td>
+                        <td>{{ item.state_name }}</td>
+                        <td>{{ item.district_name }}</td>
+                        <td>{{ item.block_name }}</td>
+                        <td>{{ item.pincode }}</td>
+                        <td>{{ item.from }}</td>
+                        <td>{{ item.to }}</td>
+                        <td>{{ item.lat }}</td>
+                        <td>{{ item.long }}</td>
+                        <td>{{ item.fee_type }}</td>
+                        <td><a [routerLink]="" (click)=setData(item.sessions)>Sessions</a></td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-between p-2">
+                <ngb-pagination style="width: auto" [boundaryLinks]="true" [maxSize]="4" [collectionSize]="centersList.centers.length" [(page)]="page"
+                    [pageSize]="pageSize">
+    
+                </ngb-pagination>
+                <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+                    <option [ngValue]="3">3 items per page</option>
+                    <option [ngValue]="30">30 items per page</option>
+                    <option [ngValue]="45">45 items per page</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

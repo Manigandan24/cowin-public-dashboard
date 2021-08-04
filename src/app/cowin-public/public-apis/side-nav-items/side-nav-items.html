@@ -1,0 +1,13 @@
+<a mat-list-item  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="onItemSelected(item, i)" [ngStyle]="{'padding-left': (depth * 10) + 'px'}" >
+    <!-- <mat-icon>{{item.iconName}}</mat-icon>-->
+     {{item.displayName}}
+     <span fxFlex *ngIf="item.children && item.children.length">
+         <span fxFlex></span>
+         <mat-icon [@indicatorRotate]="expanded? 'expanded': 'collapsed'">expand_more</mat-icon>
+     </span>
+ </a>
+ 
+ <div *ngIf="expanded">
+     <side-menu-list *ngFor="let child of item.children;index as ii" [i]="ii" [item]="child" [depth]="depth+1">
+     </side-menu-list>
+ </div>

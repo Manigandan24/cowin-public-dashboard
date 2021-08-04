@@ -1,0 +1,20 @@
+<div class=container>
+    <div class=session_pin>
+        <form #sessionByPinForm="ngForm" (ngSubmit)="onSubmit(sessionByPinForm)">
+            <div class='pincode' style="margin-top: 20px;">
+                <input type=number class="pincode" placeholder="Enter pincode" name="pincode" [(ngModel)]=pincode
+                    maxlength="10" size="15">
+            </div>
+            <div class='date' style="margin-top: 20px;">
+                <input type=date class="date" placeholder="Enter pincode" name="date" [(ngModel)]=date maxlength="10"
+                    size="15">
+            </div>
+            <div class='submit' style="margin-top: 20px;">
+                <button mat-raised-button color="primary" type="submit">Find Sessions</button>
+            </div>
+        </form>
+        <div class=sessions>
+            <app-sessions-card [isLoading]=isLoading [message]=message [sessionsList]=sessionsList></app-sessions-card>
+        </div>
+    </div>
+</div>

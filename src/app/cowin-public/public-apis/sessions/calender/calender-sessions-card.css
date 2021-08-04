@@ -1,0 +1,9 @@
+thead th {
+    background-color: yellowgreen;
+    color: black;
+}
+
+.sessions{
+    overflow-x: auto;
+    margin-left: 1%;
+}

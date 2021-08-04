@@ -1,0 +1,14 @@
+.toolbar {
+    height: 40px;
+    min-height: 40px;
+    width: 1366px;
+    min-width: 1366px;
+    }
+
+  .filler{
+    flex: 1 1 auto;  
+  }
+
+  span{
+    font-size: .8em;
+  }

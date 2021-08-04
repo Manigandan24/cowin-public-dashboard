@@ -1,0 +1,13 @@
+.container{
+    margin-left: 10%;
+  }
+
+  .centers{
+    overflow-x: auto;
+  }
+
+  thead th {
+    background-color: yellowgreen;
+    color: black;
+}
+

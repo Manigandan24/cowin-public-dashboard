@@ -1,0 +1,54 @@
+<div class=sessions>
+    <div *ngIf="isLoading">
+        <p> {{ message }}</p>
+    </div>
+    <div *ngIf="!isLoading">
+        <button type="submit" class="btn btn-primary" (click)=back()>Back</button>
+        <div class="sessions">
+            <div style="margin-top: 15px;">
+                <h1>Sessions List</h1>
+            </div>
+            <table class="table table-striped  table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>session_id</th>
+                        <th>date</th>
+                        <th>available_capacity</th>
+                        <th>available_capacity_dose1</th>
+                        <th>available_capacity_dose2</th>
+                        <th>min_age_limit</th>
+                        <th>allow_all_age</th>
+                        <th>vaccine</th>
+                        <th>slots</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of sessionsList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i =index">
+                        <th scope="row">{{ (page -1) * pageSize + i + 1 }}</th>
+                        <td>{{ item.session_id }}</td>
+                        <td>{{ item.date }}</td>
+                        <td>{{ item.available_capacity }}</td>
+                        <td>{{ item.available_capacity_dose1 }}</td>
+                        <td>{{ item.available_capacity_dose2 }}</td>
+                        <td>{{ item.min_age_limit }}</td>
+                        <td>{{ item.allow_all_age }}</td>
+                        <td>{{ item.vaccine }}</td>
+                        <td>{{ item.slots }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-between p-2">
+                <ngb-pagination style="width: auto" [boundaryLinks]="true" [maxSize]="4" [collectionSize]="sessionsList.length" [(page)]="page"
+                    [pageSize]="pageSize">
+    
+                </ngb-pagination>
+                <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+                    <option [ngValue]="3">3 items per page</option>
+                    <option [ngValue]="30">30 items per page</option>
+                    <option [ngValue]="45">45 items per page</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class=container>
+    <div class=session_district>
+        <form #sessionByDistrictForm="ngForm" (ngSubmit)="onSubmit(sessionByDistrictForm)">
+            <div class='district_id' style="margin-top: 20px;">
+                <input type=number class="district_id" placeholder="Enter district Id" name="district_id" [(ngModel)]=pincode
+                    maxlength="10" size="15">
+            </div>
+            <div class='date' style="margin-top: 20px;">
+                <input type=date class="date" placeholder="Enter date" name="date" [(ngModel)]=date maxlength="10"
+                    size="15">
+            </div>
+            <div class='submit' style="margin-top: 20px;">
+                <button mat-raised-button color="primary" type="submit">Find Sessions</button>
+            </div>
+        </form>
+        <div class=sessions>
+            <app-sessions-card [isLoading]=isLoading [message]=message [sessionsList]=sessionsList></app-sessions-card>
+        </div>
+    </div>
+</div>

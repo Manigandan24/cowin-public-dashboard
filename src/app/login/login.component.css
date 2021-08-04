@@ -1,0 +1,35 @@
+#login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    background-color: dodgerblue;
+  }
+
+  #username,#password, #confirmPass{
+      margin: 2px;
+      padding: 1px;
+  }
+
+  #submit{
+      margin: 5px;
+  }
+
+  mat-card {
+    margin: 2em auto;
+    text-align: center;
+
+    width: calc(30% - 70px);   height: calc(30% - 70px);
+  }
+  
+  mat-form-field {
+    display: block;
+  }
+
+  mat-icon {
+    font-size: 70px;
+    margin-bottom: 80px;
+    margin-right: 50px;
+  }

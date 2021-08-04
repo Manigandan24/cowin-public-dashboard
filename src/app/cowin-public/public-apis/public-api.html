@@ -1,0 +1,38 @@
+<mat-sidenav-container autosize="true">
+    <mat-sidenav opened mode="side" fixedViewTopGap=40px>
+        <mat-nav-list>
+            <a mat-list-item (click)=enableAuthrization()>Authorize</a>
+            <div *ngIf="authorized">
+                <side-menu-list *ngFor="let item of sideNavItems;index as i" [item]="item" [i]="i" (click)=enableApi()>
+                    Apis List</side-menu-list>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content *ngIf="!authorized">
+        <form #authForm="ngForm" >
+            <div class=auth *ngIf="!receivedOtp">
+                <div class='mobilenumber'>
+                    <input class="mobilenumber1" placeholder="Enter mobilenumber" name="mobilenumber"
+                        [(ngModel)]=mobilenumber maxlength="10" size="15">
+                </div>
+                <div class='submit'>
+                    <button mat-raised-button color="primary" type="submit"  (click)="genOtp()">Get Otp</button>
+                </div>
+            </div>
+            <div class=otpbtn *ngIf="receivedOtp">
+                <div class='otp'>
+                    <input class="otp" placeholder="Enter otp" name="otp" [(ngModel)]=otp maxlength="10" size="15">
+                </div>
+                <div class='submit'>
+                    <button mat-raised-button color="primary" (click)="authorize()">Authorize</button>
+                </div>
+            </div>
+
+
+        </form>
+    </mat-sidenav-content>
+    <mat-sidenav-content *ngIf="authorized">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

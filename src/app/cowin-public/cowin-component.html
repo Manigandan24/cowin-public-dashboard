@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" class="toolbar mat-elevation-z8">
+    <mat-toolbar-row>
+      <a mat-button [routerLink]="['./public']" [routerLinkActive]="['active']">Public API</a>
+      <span class=filler></span>
+      <a mat-button type="button" on-click="logout()">LogOut</a>
+      
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <router-outlet></router-outlet>
